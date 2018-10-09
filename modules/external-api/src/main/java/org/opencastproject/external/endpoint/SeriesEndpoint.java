@@ -590,7 +590,7 @@ public class SeriesEndpoint {
                           @RestResponse(description = "The request is invalid or inconsistent.", responseCode = HttpServletResponse.SC_BAD_REQUEST),
                           @RestResponse(description = "The specified series does not exist.", responseCode = HttpServletResponse.SC_NOT_FOUND) })
   public Response updateSeriesMetadata(@HeaderParam("Accept") String acceptHeader, @PathParam("seriesId") String id,
-          @QueryParam("type") String type, @FormParam("metadata") String metadataJSON) throws Exception {
+          @FormParam("type") String type, @FormParam("metadata") String metadataJSON) throws Exception {
     if (StringUtils.trimToNull(metadataJSON) == null) {
       return RestUtil.R.badRequest("Unable to update metadata for series as the metadata provided is empty.");
     }
